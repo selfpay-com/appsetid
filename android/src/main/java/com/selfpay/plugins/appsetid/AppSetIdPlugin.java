@@ -1,5 +1,7 @@
 package com.selfpay.plugins.appsetid;
 
+import android.content.Context;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -9,14 +11,17 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 @CapacitorPlugin(name = "AppSetId")
 public class AppSetIdPlugin extends Plugin {
 
-    private AppSetId implementation = new AppSetId();
-
     @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
+    public void retrieve(PluginCall call) {
+        Context context = this.bridge.getContext();
 
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
+        AppSetIdRetriever.getAppSetId(context, (appSetId, error) -> {
+            JSObject ret = new JSObject();
+            ret.put("appSetId", appSetId);
+            ret.put("error", error);
+            call.resolve(ret);
+        });
+
+        
     }
 }

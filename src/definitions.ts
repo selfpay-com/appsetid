@@ -1,3 +1,3 @@
 export interface AppSetIdPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  retrieve(): Promise<{ appSetId: string, error: string }>;
 }

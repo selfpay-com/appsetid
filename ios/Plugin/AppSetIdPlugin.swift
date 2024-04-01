@@ -7,12 +7,9 @@ import Capacitor
  */
 @objc(AppSetIdPlugin)
 public class AppSetIdPlugin: CAPPlugin {
-    private let implementation = AppSetId()
-
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
+    @objc func retrieve(_ call: CAPPluginCall) {
         call.resolve([
-            "value": implementation.echo(value)
+            "error": "AppSetId not available on iOS"
         ])
     }
 }
