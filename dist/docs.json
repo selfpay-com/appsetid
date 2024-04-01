@@ -1,0 +1,25 @@
+{
+  "api": {
+    "name": "AppSetIdPlugin",
+    "slug": "appsetidplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "retrieve",
+        "signature": "() => Promise<{ appSetId: string; error: string; }>",
+        "parameters": [],
+        "returns": "Promise<{ appSetId: string; error: string; }>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "retrieve"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}
